@@ -1,4 +1,4 @@
-const connection = require("connection.js");
+const connection = require("./connection.js");
 
 function addQuestionMarks(num) {
     var arr = [];
@@ -31,7 +31,7 @@ const orm = {
         });
     },
     insertOne: function(burgerName) {
-        var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (??, false);";
+        var queryString = `INSERT INTO burgers (burger_name, devoured) VALUES (??, false);`;
         connection.query(queryString, [burgerName], function (err, res) {
             if(err) throw err;
             console.log(res);
