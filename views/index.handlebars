@@ -1,17 +1,19 @@
 <h1>Burger Time!</h1>
 
-<img src="../public/assets/img/burger.jpg" alt="Hamburger">
+<img src="assets/img/burger.jpg" alt="Hamburger">
 
 <ul>
-    {{#each burger}}
+    {{#each burgers}}
         {{#unless devoured}}
+        {{this.burger_name}}
         {{/unless}}
     {{/each}}
 </ul>
 
 <ul>
-    {{#each burger}}
+    {{#each burgers}}
         {{#if devoured}}
+        {{this.burger_name}}
         {{/if}}
     {{/each}}
 </ul>

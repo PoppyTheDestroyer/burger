@@ -1,8 +1,8 @@
 const orm = require("../config/orm.js");
 
 var burger = {
-    selectAll: function(colsToSearch, valOfCol, cb) {
-        orm.selectAll(colsToSearch, valOfCol, cb,function(res) {
+    selectAll: function(cb) {
+        orm.selectAll(cb,function(res) {
             cb(res);
         });
     },

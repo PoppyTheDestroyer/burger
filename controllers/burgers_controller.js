@@ -8,12 +8,17 @@ router.get("/", function(req, res) {
     var hbsObject = {
       burgers: data
     };
-    console.log(hbsObject);
-    res.render("../views/index.handlebars", hbsObject);
+    /*console.log("one", data);
+    console.log("two", res);*/
+
+    console.log("farts");
+    //res.send("hello world!!!!");
+
+    res.render("index", hbsObject);
   });
 });
 
-router.post("api/burgers", function(req, res) {
+router.post("/api/burgers", function(req, res) {
   burger.insertOne([req.body.burger_name], function(result) {
     res.json({ id: result.insertId });
   });

@@ -23,18 +23,23 @@ function objToSql(ob) {
 }
 
 const orm = {
-    selectAll: function() {
+    selectAll: function(cb) {
         var queryString = "SELECT * FROM burgers;";
         connection.query(queryString, function(err, res) {
             if(err) throw err;
             console.log(res);
+            console.log("crap");
+            cb(res);
+            return res;
+            
         });
     },
-    insertOne: function(burgerName) {
+    insertOne: function(burgerName, cb) {
         var queryString = `INSERT INTO burgers (burger_name, devoured) VALUES (??, false);`;
         connection.query(queryString, [burgerName], function (err, res) {
             if(err) throw err;
             console.log(res);
+            cb(res);
         });
     },
     updateOne: function(objColVals, condition, cb) {
