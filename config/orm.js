@@ -23,9 +23,9 @@ function objToSql(ob) {
 }
 
 const orm = {
-    selectAll: function(colToSearch, valOfCol) {
-        var queryString = "SELECT * FROM burgers WHERE ?? = ?;";
-        connection.query(queryString, [colToSearch, valOfCol], function(err, res) {
+    selectAll: function() {
+        var queryString = "SELECT * FROM burgers;";
+        connection.query(queryString, function(err, res) {
             if(err) throw err;
             console.log(res);
         });
