@@ -36,20 +36,33 @@ const orm = {
     },
     insertOne: function(burgerName, cb) {
         var queryString = `INSERT INTO burgers (burger_name, devoured) VALUES (??, false);`;
+        console.log(queryString);
         connection.query(queryString, [burgerName], function (err, res) {
             if(err) throw err;
             console.log(res);
             cb(res);
         });
     },
-    updateOne: function(objColVals, condition, cb) {
-        var queryString = `UPDATE burgers SET ${objToSql(objColVals)} WHERE ${condition}`;
+    updateOne: function(condition, cb) {
+        console.log(condition);
+        var queryString = `UPDATE burgers SET devoured = true WHERE ${condition}`;
         console.log(queryString);
         connection.query(queryString, function(err, res) {
             if (err) throw err;
             cb(res);
         });
-    }
+    },
+    delete: function(condition, cb) {
+        var queryString = `DELETE FROM burgers WHERE ${condition}`;
+    
+        connection.query(queryString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+    
+          cb(result);
+        });
+      }
 };
 
 module.exports = orm;
