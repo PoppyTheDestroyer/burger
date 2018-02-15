@@ -11,7 +11,6 @@ router.get("/", function(req, res) {
     /*console.log("one", data);
     console.log("two", res);*/
 
-    console.log("farts");
     //res.send("hello world!!!!");
 
     res.render("index", hbsObject);
@@ -19,7 +18,8 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burgers", function(req, res) {
-  burger.insertOne([req.body.burger_name], function(result) {
+  console.log(req.body.name);
+  burger.insertOne(req.body.name, function(result) {
     res.json({ id: result.insertId });
   });
 });

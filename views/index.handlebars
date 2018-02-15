@@ -13,7 +13,7 @@
     <ul class="col-md-4">
         {{#each burgers}} {{#if devoured}}
         <li>{{this.burger_name}}
-            <button class="delete btn btn-warning">Delete</button>
+            <button class="delete btn btn-warning" data-id="{{id}}">Delete</button>
         </li>
         {{/if}} {{/each}}
     </ul>
@@ -22,7 +22,7 @@
 <form class="create-form">
     <div class="form-group">
         <label for="burg">Burger Name:</label>
-        <input type="text" id="burg" name="burger_name">
+        <input type="text" id="burg" name="name">
     </div>
-    <button class="btn btn-info" type="submit">Add a Burger</button>
+    <button class="createBurger btn btn-info" type="submit">Add a Burger</button>
 </form>

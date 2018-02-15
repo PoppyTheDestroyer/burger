@@ -1,13 +1,5 @@
 const connection = require("./connection.js");
 
-function addQuestionMarks(num) {
-    var arr = [];
-    for(var i = 0; i<num; i+=1) {
-        arr.push("?");
-    }
-    return arr.toString();
-}
-
 function objToSql(ob) {
     var arr = [];
     for (var key in ob) {
@@ -35,9 +27,9 @@ const orm = {
         });
     },
     insertOne: function(burgerName, cb) {
-        var queryString = `INSERT INTO burgers (burger_name, devoured) VALUES (??, false);`;
+        var queryString = `INSERT INTO burgers (burger_name, devoured) VALUES ("${burgerName}", false);`;
         console.log(queryString);
-        connection.query(queryString, [burgerName], function (err, res) {
+        connection.query(queryString, function (err, res) {
             if(err) throw err;
             console.log(res);
             cb(res);

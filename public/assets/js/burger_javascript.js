@@ -1,4 +1,20 @@
 $(function() {
+    $(".create-form").on("submit", function(event) {
+        event.preventDefault();
+        var burgerName = {
+            name: $("#burg").val().trim()
+        };
+        console.log(burgerName);
+        $.ajax("./api/burgers", {
+            type: "POST",
+            data: burgerName
+        }).then(
+            function(){
+                console.log(`created new burger: ${burgerName}`);
+                location.reload(); 
+            }
+        );
+    });
   $(".devoured").on("click", function(event) {
     var id = $(this).data("id");
     console.log(id);
