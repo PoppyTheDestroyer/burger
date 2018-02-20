@@ -20,3 +20,4 @@ connection.connect(err => {
 });
 
 module.exports = connection;
+//mysql://fowd4sfi5idddjkl:b28ekuwj6mh41bpm@bmsyhziszmhf61g1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/fmohd8yjml1s0482
