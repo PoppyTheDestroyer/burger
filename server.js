@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
-const routes = require("./controllers/burgers_controller.js");
+const routes = require("./controllers/books_controller.js");
 app.use("/", routes);
 
 app.listen(port);

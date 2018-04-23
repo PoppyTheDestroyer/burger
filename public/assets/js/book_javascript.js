@@ -1,16 +1,16 @@
 $(function() {
     $(".create-form").on("submit", function(event) {
         event.preventDefault();
-        var burgerName = {
+        var bookName = {
             name: $("#burg").val().trim()
         };
-        console.log(burgerName);
-        $.ajax("./api/burgers", {
+        console.log(bookName);
+        $.ajax("./api/books", {
             type: "POST",
-            data: burgerName
+            data: bookName
         }).then(
             function(){
-                console.log(`created new burger: ${burgerName}`);
+                console.log(`created new book: ${bookName}`);
                 location.reload(); 
             }
         );
@@ -19,25 +19,25 @@ $(function() {
     var id = $(this).data("id");
     console.log(id);
     var devoured = $(this).data("devoured");
-    var burgerEat = {
+    var bookEat = {
       devoured: devoured
     };
     console.log("devoured?");
-    $.ajax(`/api/burgers/${id}`, {
+    $.ajax(`/api/books/${id}`, {
       type: "PUT",
-      data: burgerEat
+      data: bookEat
     }).then(function() {
-      console.log(`changed burger status to ${devoured}`);
+      console.log(`changed book status to ${devoured}`);
       location.reload();
     });
   });
   $(".delete").on("click", function(event) {
     var id = $(this).data("id");
-    $.ajax(`/api/burgers/${id}`, {
+    $.ajax(`/api/books/${id}`, {
       type: "DELETE",
       data: id
     }).then(function() {
-      console.log("deleted burger", id);
+      console.log("deleted book", id);
       location.reload();
     });
   });

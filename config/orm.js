@@ -23,7 +23,6 @@ const orm = {
             console.log("crap");
             cb(res);
             return res;
-            
         });
     },
     insertOne: function(burgerName, cb) {
@@ -46,12 +45,10 @@ const orm = {
     },
     delete: function(condition, cb) {
         var queryString = `DELETE FROM burgers WHERE ${condition}`;
-    
         connection.query(queryString, function(err, result) {
           if (err) {
             throw err;
           }
-    
           cb(result);
         });
       }

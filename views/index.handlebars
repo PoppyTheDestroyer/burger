@@ -3,26 +3,26 @@
 <img class="center" src="assets/img/burger.jpg" alt="Hamburger">
 <div class="row">
     <ul class="col-md-4">
-        {{#each burgers}} {{#unless devoured}}
-        <li>{{this.burger_name}}
+        {{#each books}} {{#unless devoured}}
+        <li>{{this.book_title}}
             <button class="devoured btn btn-info" data-id="{{id}}" data-devoured="eaten">Devour!</button><button data-id="{{id}}" class="delete btn btn-warning">Delete</button>
         </li>
         {{/unless}} {{/each}}
     </ul>
 
     <ul class="col-md-4">
-        {{#each burgers}} {{#if devoured}}
-        <li>{{this.burger_name}}
+        {{#each books}} {{#if devoured}}
+        <li>{{this.book_title}}
             <button class="delete btn btn-warning" data-id="{{id}}">Delete</button>
         </li>
         {{/if}} {{/each}}
     </ul>
 </div>
-<h2>Add a Burger</h2>
+<h2>Add a Book</h2>
 <form class="create-form">
     <div class="form-group">
-        <label for="burg">Burger Name:</label>
+        <label for="burg">Book title:</label>
         <input type="text" id="burg" name="name">
     </div>
-    <button class="createBurger btn btn-info" type="submit">Add a Burger</button>
+    <button class="createBook btn btn-info" type="submit">Add a Book</button>
 </form>

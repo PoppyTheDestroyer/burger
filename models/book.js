@@ -1,13 +1,13 @@
 const orm = require("../config/orm.js");
 
-var burger = {
+var book = {
     selectAll: function(cb) {
         orm.selectAll(cb,function(res) {
             cb(res);
         });
     },
-    insertOne: function(burgerName, cb) {
-        orm.insertOne(burgerName, function(res) {
+    insertOne: function(bookTitle, cb) {
+        orm.insertOne(bookTitle, function(res) {
             cb(res);
         });
     },
@@ -23,4 +23,4 @@ var burger = {
     }
 };
 
-module.exports = burger;
+module.exports = book;
